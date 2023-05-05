@@ -52,17 +52,19 @@ namespace trans {
 		transport** _ptr;
 		size_t _size;
 	public:
+		void remove(int index);
 		void swap(container& list) noexcept;
 		container();
 		container(const container& list);
 		container& operator=(container list);
 		void clear() noexcept;
 		~container();
-		void add(transport item);
+		void add(transport* item);
 		int size();
 		void insert(transport* item, int index);
 		void replace(int index, transport* tran);
 		transport* operator[](size_t index) const;
+		transport transp(size_t index);
 		int max_s();
 		friend std::ostream& operator<<(std::ostream& cout,container& t);
 	};

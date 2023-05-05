@@ -22,6 +22,18 @@ container& container::operator=(container list)
 }
 
 
+void trans::container::remove(int index)
+{
+	if (index < 0 or index >= _size) {
+		throw runtime_error("Error");
+	}
+	delete _ptr[index];
+	for (int i = index; i < _size - 1; i++) {
+		_ptr[i] = _ptr[i + 1];
+	}
+	_size--;
+}
+
 void container::swap(container& new_arr) noexcept
 {
 	std::swap(this->_ptr, new_arr._ptr);
@@ -69,6 +81,7 @@ void container::insert(transport* item, int index)
 	delete[] _ptr;
 	_ptr = ptr;
 	++_size;
+
 }
 
 void trans::container::replace(int index, transport* tran)
@@ -85,6 +98,11 @@ void trans::container::replace(int index, transport* tran)
 transport* container::operator[](size_t index) const
 {
 	return _ptr[index];
+}
+
+transport trans::container::transp(size_t index)
+{
+	return *_ptr[index];
 }
 
 int container::max_s()
@@ -106,13 +124,13 @@ int container::max_s()
 }
 
 
-void container::add(transport item) 
+void container::add(transport* item) 
 {
 	auto vehicles = new transport * [_size + 1];
 	for (int i = 0; i < _size; i++) {
 		vehicles[i] = _ptr[i];
 	}
-	vehicles[_size] = new transport(item);
+	vehicles[_size] = item;
 	delete[] _ptr;
 	_ptr = vehicles;
 	_size++;
