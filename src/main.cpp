@@ -35,7 +35,7 @@ transport* create_tran()
 	}
 	if ((vichal)q == EASY)
 	{
-		auto T1 = new transport((vichal)q, 01, V, model_name, S);
+		auto T1 = new transport((vichal)q, 0, V, model_name, S);
 		return T1;
 	}
 }
@@ -81,7 +81,6 @@ int main()
 			cout << "введите индекс для вставки транспорта" << endl;
 			cin >> index;
 			dc.insert(create_tran(), index);
-			cout << "успешно" << endl;
 			system("cls");
 			console();
 			break;
@@ -96,7 +95,6 @@ int main()
 			cout << dc << endl;
 			break;
 		case 5:
-			if (dc.size() == 0) cout << "0";
 				cout << dc.max_s() << endl;
 				break;
 		case 6:
