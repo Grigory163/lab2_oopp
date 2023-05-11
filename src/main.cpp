@@ -114,7 +114,7 @@ int main()
 				cout << " ¬ведите индекс" << endl;
 				cin >> index;
 				cout << dc.transp(index) << endl;
-				cout << dc[index]->Compute() << endl;
+				cout << dc[index]->Compute()*0.01 << endl;
 			}
 			catch (const std::out_of_range &a)
 			{

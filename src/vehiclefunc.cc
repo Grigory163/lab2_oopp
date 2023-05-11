@@ -127,11 +127,11 @@ float transport::Compute()
 	switch (_name)
 	{
 	case EASY:
-		return _S * _V*0.01;
+		return _S * _V;
 	case KAMAZ:
-		return float(((_T / 2) + 1) * _V * _S) * 0.01;
+		return float(((_T / 2) + 1) * _V * _S);
 	case MOTO:
-		return double(_S * _V * double(0.3))*0.01;
+		return double(_S * _V * double(0.3));
 	default:
 		break;
 	}
