@@ -102,6 +102,7 @@ transport* container::operator[](size_t index) const
 
 transport trans::container::transp(size_t index)
 {
+	if (index > _size) throw std::out_of_range("Index out of range.");
 	return *_ptr[index];
 }
 
@@ -111,7 +112,7 @@ int container::max_s()
 	int max_index = 0;
 	int max_tax = 0;
 	auto n = _size;
-	for (size_t i = 1; i < n; i++)
+	for (size_t i = 0; i < n; i++)
 	{
 		if (_ptr[i]->Compute() > max_tax)
 		{

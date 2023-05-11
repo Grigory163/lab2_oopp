@@ -122,16 +122,16 @@ transport::transport(vichal type2, int T1, double V1, std::string model_name, do
 	_V = V1;
 	this->model_name = model_name;
 }
-double transport::Compute()
+float transport::Compute()
 {
 	switch (_name)
 	{
 	case EASY:
-		return _S * _V;
+		return _S * _V*0.01;
 	case KAMAZ:
-		return ((_T / 2) + 1) * _V * _S;
+		return float(((_T / 2) + 1) * _V * _S) * 0.01;
 	case MOTO:
-		return double(_S * _V * double(0.3));
+		return double(_S * _V * double(0.3))*0.01;
 	default:
 		break;
 	}

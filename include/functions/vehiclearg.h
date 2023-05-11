@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 namespace trans {
 	enum vichal {
@@ -23,6 +25,7 @@ namespace trans {
 	public:
 		//transport(vichal type, double V, std::string model_name, double S);
 		transport(vichal type, int T, double V, std::string model_name, double S);
+		transport(vichal type, double V, std::string model_name, double S);
 		~transport() {};
 		friend std::ostream& operator<<(std::ostream& cout, const transport& t);
 		transport();
@@ -38,7 +41,7 @@ namespace trans {
 		void Set_V(double v);
 		void Set_T(int t);
 		void Set_S(int s);
-		double Compute();
+		float Compute();
 		void Print();
 		
 	};
@@ -52,6 +55,7 @@ namespace trans {
 		transport** _ptr;
 		size_t _size;
 	public:
+
 		void remove(int index);
 		void swap(container& list) noexcept;
 		container();

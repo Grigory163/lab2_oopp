@@ -15,8 +15,11 @@ transport* create_tran()
 	int q;
 	cout << "0-EASY,1-KAMAZ, 2-MOTO" << endl;
 	cin >> q;
-	cout << "¬ведиете тоннаж " << endl;
-	cin >> T;
+	if (q == 1)
+	{
+		cout << "¬ведиете тоннаж " << endl;
+		cin >> T;
+	}
 	cout << "¬ведите обьем " << endl;
 	cin >> V;
 	cout << "¬ведите налог " << endl;
@@ -47,12 +50,14 @@ void console()
 	cout << " 4 - вывести список транспорта " << endl;
 	cout << " 5 - поиск первого траснпорта с наобольшим налогом " << endl;
 	cout << " 6 - заменить элемент по индексу " << endl;
-	cout << " 7 - выйти из системы " << endl;
+	cout << " 7 - получить элемент по индкексу " << endl;
+	cout << " 8 - выйти из системы " << endl;
 
 }
 int main()
 {
-
+	std::cout << std::fixed;
+	std::cout << std::setprecision(2);
 	int index = 0;
 	setlocale(LC_ALL, "ru");
 	container dc;
@@ -62,7 +67,7 @@ int main()
 	
 		int k;
 		cin >> k;
-		if (k == 7) {
+		if (k == 8) {
 			dc.clear();
 			break;
 		}
@@ -103,6 +108,18 @@ int main()
 			dc.replace(index, create_tran());
 			system("cls");
 			console();
+			break;
+		case 7:
+			try {
+				cout << " ¬ведите индекс" << endl;
+				cin >> index;
+				cout << dc.transp(index) << endl;
+				cout << dc[index]->Compute() << endl;
+			}
+			catch (const std::out_of_range &a)
+			{
+				std::cout << a.what() << endl;
+			}
 			break;
 		}
 	}

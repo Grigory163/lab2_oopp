@@ -113,18 +113,18 @@ TEST(ttyyuum432, tes3t5)
     EXPECT_EQ(dc.size(), 6);
     cout << dc.transp(2) << endl;
 }
-//
-//TEST(twet, gerg)
-//{
-//    container my_container;
-//    my_container.add(new transport(vichal::EASY, 1.5, "AUDI R8", 15));
-//    my_container.add(new transport(vichal::EASY, 1.5, "AUDI R4218", 15));
-//    my_container.add(new transport(vichal::EASY, 1.5, "AUDI R8", 15));
-//
-//    transport* t1 = my_container[0]; // Получаем указатель на первый объект класса transport
-//    transport* t2 = my_container[1];
-//    cout << *my_container[1] << endl;
-//}
+
+TEST(twet, gerg)
+{
+    container my_container;
+    my_container.add(new transport (vichal::EASY, 1.5, 4.3, "AUDI R8", 15));
+    my_container.add(new transport(vichal::EASY, 1.5, 5.3, "AUDI R4218", 15));
+    my_container.add(new transport(vichal::EASY, 1.5, 9.3, "AUDI R8", 15));
+
+    transport* t1 = my_container[0]; // Получаем указатель на первый объект класса transport
+    transport* t2 = my_container[1];
+    cout << *my_container[1] << endl;
+}
 //
 //TEST(repl, 123)
 //{
