@@ -32,4 +32,5 @@ add_executable(functions_tests "tests/functions_tests.cc" "src/vehiclelistfunc.c
 target_link_libraries(functions_tests functions GTest::gtest_main)
 
 add_executable(main "src/main.cpp")
-target_link_libraries(main functions)
+target_link_libraries(main functions) надо удалить
+
